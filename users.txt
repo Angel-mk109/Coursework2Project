@@ -1,0 +1,7 @@
+<username.Username object at 0x10f08b770>,<function hash_password at 0x10f26a200>
+<username.Username object at 0x1078c7770>,<function hash_password at 0x107aa5800>
+<username.Username object at 0x104533770>,<function hash_password at 0x104711800>
+<username.Username object at 0x10422f770>,<function hash_password at 0x10440d800>
+<username.Username object at 0x1119c0440>,<function hash_password at 0x1119bfba0>
+<username.Username object at 0x116bf5940>,<function hash_password at 0x116c2b560>
+<username.Username object at 0x112500440>,<function hash_password at 0x1124ffba0>
