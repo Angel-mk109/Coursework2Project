@@ -1,3 +1,51 @@
+import sqlite3
+conn = sqlite3.connect('Data/myTest.db')
+c = conn.cursor()
+createScript = """create table if not exists cyber_incidents(
+          id integer primary key autoincrement,
+          username text not null unique,
+          password_hash text not null,
+          role text default 'user'           )"""
+
+c.execute(createScript)
+conn.commit()
+
+
+import sqlite3
+conn = sqlite3.connect('Data/myTest.db')
+c = conn.cursor()
+insertScript = """INSERT INTO users(username, role, password_hash)
+                            VALUES('user3', 'captain', '1234567' )"""
+c.execute(insertScript)
+conn.commit()
+
+
+
+import sqlite3
+
+conn = sqlite3.connect('Data/myTest.db')
+c = conn.cursor()
+
+userid = 'user1'
+
+selectscrpt = f"""SELECT * FROM users 
+                     WHERE username = {'user1'}
+                    OR role = 'user'"""
+print(selectscrpt)
+
+
+
+import sqlite3
+
+conn = sqlite3.connect('Data/myTest.db')
+c = conn.cursor()
+
+updateScript = f"""SELECT * FROM users 
+                     WHERE username = {'user1'}
+                    OR role = 'user'"""
+print(updateScript)
+
+
 import bcrypt
 def hash_password(plain_text_pass):
     pass_bytes = plain_text_pass.encode('utf-8')
@@ -18,7 +66,7 @@ def register_user(username, password):
     hashed_password = hash_password(password)
 
 
-with open("users.txt", "a") as f:
+with open("SQL/DATA/users.txt", "a") as f:
     f.write(f"{username},{hash_password}\n")
 print(f"User '{username}' registered.")
 

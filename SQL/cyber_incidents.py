@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('DATA/users.db')
+conn = sqlite3.connect('../users.db')
 c = conn.cursor()
 c.execute("""create table if not exists cyber_incidents
      id INTEGER PRIMARY KEY AUTOINCREMENT
@@ -25,5 +25,4 @@ with open("cyber_incidents.csv","r") as incFile:
                          (id, incident_date, incident_type, severity, status, description, 
                           reported_by,   created_at)
                           values(?,?,?,?,?,?,?, datetime())"""),
-                          vals[0],   vals[1],   vals[2]   vals[3],   vals[4],   vals[5],reported_by())
-        conn.commit()
+conn.commit()

@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('DATA/users.db')
+conn = sqlite3.connect('../users.db')
 c = conn.cursor()
 createScript = """create table if not exists users(
           id integer primary key autoincrement,
