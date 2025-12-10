@@ -1,5 +1,5 @@
 import streamlit as st
-import dbHelper
+import db
 
 
 st.title('Editing DB content with streamlit')
@@ -39,8 +39,8 @@ if'records' not in st.session_state:
 
 
 df = pd.Dataframe.from_records(
-    st.session_state.recors,
-columns=['id', 'description']
+    st.session_state.records,
+columns=['id', 'description'])
 
 st.dataframe(df, use_container_width=True)
 

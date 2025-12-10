@@ -4,7 +4,7 @@ def get_user_by_username(username):
     """Retrieve user by username."""
     conn = connect_database()
     cursor = conn.cursor()
-    cursor.execute(
+    cursor. execute(
         "SELECT * FROM users WHERE username = ?",
         (username,)
     )

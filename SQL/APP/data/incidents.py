@@ -15,7 +15,7 @@ def insert_incident(date, incident_type, severity, status, description, reported
     conn.close()
     return incident_id
 
-def get_all_incidents():
+def get_all_incidents(conn):
     """Get all incidents as DataFrame."""
     conn = connect_database()
     df = pd.read_sql_query(

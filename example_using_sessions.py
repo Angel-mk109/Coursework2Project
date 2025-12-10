@@ -5,7 +5,7 @@ st.title('Open AI')
 #1. st.chat_input
 #2. st.chat message
 
-# define session state to sore historical information for a given message
+# define session state to store historical information for a given message
 if 'message' not in st.session_state:
     st.session_state.message = []
 
