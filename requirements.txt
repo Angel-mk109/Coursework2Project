@@ -1,0 +1,9 @@
+pandas~=2.3.3
+bcrypt~=5.0.0
+app~=0.0.1
+streamlit~=1.51.0
+numpy~=2.3.4
+openai~=2.9.0
+db~=0.1.1
+username~=2.1.0
+program~=0.0.1a0
