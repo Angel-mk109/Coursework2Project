@@ -1,8 +1,8 @@
 import bcrypt
 from pathlib import Path
-from app.data.db import connect_database
-from app.data.users import get_user_by_username, insert_user
-from app.data.schema import create_users_table
+from SQL.APP.data.db import connect_database
+from SQL.APP.data.users import get_user_by_username, insert_user
+from SQL.APP.data.schema import create_users_table
 
 
 def register_user(username, password, role='user'):
