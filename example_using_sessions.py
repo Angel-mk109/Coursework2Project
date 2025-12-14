@@ -1,25 +1,39 @@
 import streamlit as st
+from openai import OpenAI
 
-st.title('Cyber Dash')
+client = OpenAI(api_key="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")
 
-#1. st.chat_input
-#2. st.chat message
+st.title("My AI Chatbot")
 
-# define session state to store historical information for a given message
-if 'message' not in st.session_state:
-    st.session_state.message = []
+# Store the chat history in Streamlit session state
+if "messages" not in st.session_state:
+    st.session_state.messages = [
+        {"role": "system", "content": "You are a helpful assistant."}
+    ]
 
+# User input box
+user_input = st.text_input("You:", key="input")
 
+# When the user clicks the button:
+if st.button("Send"):
+    if user_input:
+        # Add user message
+        st.session_state.messages.append({"role": "user", "content": user_input})
 
-# to display the historical data
-for message in st.session_state.message:
-    with st.chat_message('user'):
-        st.markdown(message)
+        # Call the API
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=st.session_state.messages
+        )
 
+        ai_message = response.choices[0].message.content
 
-prompt = st.chat_input('Hello, please type your query here')
-if prompt:
-    st.session_state.message.append(prompt)
+        # Save assistant message
+        st.session_state.messages.append({"role": "assistant", "content": ai_message})
 
-    with st.chat_message('user'):
-        st.markdown(prompt)
+# Display chat messages
+for message in st.session_state.messages:
+    if message["role"] == "user":
+        st.write(f"**You:** {message['content']}")
+    elif message["role"] == "assistant":
+        st.write(f"**AI:** {message['content']}")
