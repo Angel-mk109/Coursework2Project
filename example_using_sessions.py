@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title('Open AI')
+st.title('Cyber Dash')
 
 #1. st.chat_input
 #2. st.chat message

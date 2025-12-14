@@ -45,7 +45,6 @@ updateScript = f"""SELECT * FROM users
                     OR role = 'user'"""
 print(updateScript)
 
-
 import bcrypt
 def hash_password(plain_text_pass):
     pass_bytes = plain_text_pass.encode('utf-8')
@@ -108,53 +107,55 @@ print("[2] Login")
 print("[3] Exit")
 print("-"*50)
 def main():
-""Main program loop."""
+"""Main program loop."""
 print("\nWelcome to the Week 7 Authentication System!")
 while True:
-display_menu()
-choice = input("\nPlease select an option (1-3): ").strip()
-if choice == '1':
-# Registration flow
-print("\n--- USER REGISTRATION ---")
-username = input("Enter a username: ").strip()
-# Validate username
-is_valid, error_msg = validate_username(username)
-if not is_valid:
-print(f"Error: {error_msg}")
-continue
+ display_menu()
+    choice = input("\nPlease select an option (1-3): ").strip()
+       if choice == '1': # Registration flow
+        print("\n--- USER REGISTRATION ---")
+         username = input("Enter a username: ").strip() # Validate username
+          is_valid, error_msg = validate_username(username)
+          if not is_valid:
+         print(f"Error: {error_msg}")
+          continue
 password = input("Enter a password: ").strip()
 # Validate password
+def validate_password(password):
+    pass
+
+
 is_valid, error_msg = validate_password(password)
 if not is_valid:
 print(f"Error: {error_msg}")
 continue
-# Confirm password
+
+          # Confirm password
 password_confirm = input("Confirm password: ").strip()
-if password != password_confirm:
-print("Error: Passwords do not match.")
-continue
-# Register the user
-register_user(username, password)
-elif choice == '2':
-# Login flow
-print("\n--- USER LOGIN ---")
+     if password != password_confirm:
+       print("Error: Passwords do not match."
+          continue
+           # Register the user
+       register_user(username, password)
+   elif  choice == '2':# Login flow
+       print("\n--- USER LOGIN ---")
 username = input("Enter your username: ").strip()
 password = input("Enter your password: ").strip()
 # Attempt login
 if login_user(username, password):
 print("\nYou are now logged in.")
-print("(In a real application, you would now access the d
+      print("(In a real application, you would now access the door"
 # Optional: Ask if they want to logout or exit
-input("\nPress Enter to return to main menu...")
+     input("\nPress Enter to return to main menu...")
 elif choice == '3':
 # Exit
-print("\nThank you for using the authentication system.")
+      print("\nThank you for using the authentication system.")
 print("Exiting...")
 break
 else:
-print("\nError: Invalid option. Please select 1, 2, or 3.")
-if __name__ == "__main__":
-main()
+       print("\nError: Invalid option. Please select 1, 2, or 3.")
+             if __name__ == "__main__":
+               main()
 
 
 <username.Username object at 0x10f08b770>,<function hash_password at 0x10f26a200>

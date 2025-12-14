@@ -4,7 +4,7 @@ from SQL.APP.data.db import connect_database
 from SQL.APP.data.incidents import get_all_incidents, insert_incident
 
 # Connect to database (Week 8 function)
-conn = connect_database('intelligence_platform.db')
+conn = connect_database('users.db')
 
 # Page title
 st.title("Cyber Incidents Dashboard")
